@@ -1,33 +1,73 @@
 @import "tailwindcss";
 
+/* ----------------------------------------------------------------------------
+   Kaval — Warm Editorial Intelligence
+   Tokens per the Million-Dollar Product Brief (v1.0)
+----------------------------------------------------------------------------- */
 :root {
-  --ink: #0F0C09;
-  --ink-soft: #1A1612;
-  --cream: #F5EAD9;
-  --cream-soft: #EFE2CE;
-  --paper: #FBF4E7;
-  --orange: #D88B3F;
-  --orange-deep: #B8722E;
-  --orange-glow: #E9A559;
-  --muted-on-dark: rgba(245, 234, 217, 0.62);
-  --muted-on-light: rgba(26, 19, 16, 0.62);
-  --hairline-dark: rgba(245, 234, 217, 0.10);
-  --hairline-light: rgba(26, 19, 16, 0.12);
-  --chat-user: #1F3A2B;
-  --chat-user-text: #DCF8C6;
+  /* Background — warm premium base */
+  --cream: #F7F1E7;
+  --paper: #FFF9EF;
+  --beige: #E8DDC9;
+  --sand: #D8CBB5;
+
+  /* Text — never harsh black */
+  --ink: #18201B;
+  --charcoal: #2B332C;
+  --body: #596257;
+  --caption: #7A8278;
+
+  /* Accent — one living ember, used sparingly */
+  --ember: #F26A2E;
+  --ember-soft: #FF8A3D;
+  --ember-deep: #C9542A;
+  --ember-pale: #FFE2D1;
+
+  /* Trust green */
+  --forest: #214C3A;
+  --sage: #52715C;
+  --sage-pale: #DDE8D8;
+  --mist: #EEF4EC;
+
+  /* Risk — measured, not alarming */
+  --amber: #E8A13A;
+  --red: #B94332;
+  --red-deep: #7F2A24;
+  --grey: #8A8F86;
+
+  --hairline: rgba(24, 32, 27, 0.10);
+  --hairline-dark: rgba(247, 241, 231, 0.12);
 }
 
 @theme inline {
-  --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
   --color-cream: var(--cream);
-  --color-cream-soft: var(--cream-soft);
   --color-paper: var(--paper);
-  --color-orange: var(--orange);
-  --color-orange-deep: var(--orange-deep);
-  --color-orange-glow: var(--orange-glow);
-  --color-hairline: var(--hairline-light);
-  --color-hairline-soft: var(--hairline-dark);
+  --color-beige: var(--beige);
+  --color-sand: var(--sand);
+
+  --color-ink: var(--ink);
+  --color-charcoal: var(--charcoal);
+  --color-body: var(--body);
+  --color-caption: var(--caption);
+
+  --color-ember: var(--ember);
+  --color-ember-soft: var(--ember-soft);
+  --color-ember-deep: var(--ember-deep);
+  --color-ember-pale: var(--ember-pale);
+
+  --color-forest: var(--forest);
+  --color-sage: var(--sage);
+  --color-sage-pale: var(--sage-pale);
+  --color-mist: var(--mist);
+
+  --color-amber: var(--amber);
+  --color-red: var(--red);
+  --color-red-deep: var(--red-deep);
+  --color-grey: var(--grey);
+
+  --color-hairline: var(--hairline);
+  --color-hairline-dark: var(--hairline-dark);
+
   --font-display: var(--font-instrument-serif);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains);
@@ -42,118 +82,95 @@ html, body {
 }
 
 ::selection {
-  background: var(--orange);
+  background: var(--ember-pale);
   color: var(--ink);
 }
 
+/* ---- Type ---- */
 .font-display {
   font-family: var(--font-instrument-serif), Georgia, serif;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 0.98;
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
-
 .font-display-italic {
   font-family: var(--font-instrument-serif), Georgia, serif;
   font-style: italic;
   font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+}
+.font-mono {
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
 }
 
-.kaval-asterisk {
-  font-family: var(--font-instrument-serif), Georgia, serif;
-  color: var(--orange);
-  font-weight: 400;
-  display: inline-block;
-  transform: translateY(0.05em);
+/* ---- Section eyebrow with thin rules ---- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-jetbrains), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 
-.grain {
+/* ---- Watch dot — Kaval is watching / active ---- */
+.watch-dot {
   position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--ember);
+}
+.watch-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  background: var(--ember);
+  opacity: 0.45;
+  animation: watch-pulse 2.4s ease-in-out infinite;
+}
+@keyframes watch-pulse {
+  0%   { transform: scale(0.6); opacity: 0.5; }
+  70%  { transform: scale(1.9); opacity: 0; }
+  100% { transform: scale(0.6); opacity: 0; }
 }
 
+/* ---- Paper grain — premium printed report, not sterile dashboard ---- */
 .grain::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  opacity: 0.45;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.6;
   pointer-events: none;
-  mix-blend-mode: overlay;
+  mix-blend-mode: multiply;
+}
+.grain-dark::after { mix-blend-mode: overlay; opacity: 0.5; }
+
+/* ---- Soft float for hero nodes ---- */
+.float-y { animation: float-y 7s ease-in-out infinite; }
+.float-y-slow { animation: float-y 9s ease-in-out infinite; }
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
 }
 
-.divider-ast {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: var(--orange);
+/* ---- Evidence edge draw ---- */
+@keyframes edge-flow {
+  to { stroke-dashoffset: 0; }
+}
+.edge-flow {
+  stroke-dasharray: 4 5;
+  animation: edge-flow 14s linear infinite reverse;
 }
 
-.divider-ast::before,
-.divider-ast::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.25;
-}
+/* ---- FAQ-style details (kept minimal, unused on this page) ---- */
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
 
-.chat-tail-left::before {
-  content: "";
-  position: absolute;
-  left: -6px;
-  bottom: 6px;
-  width: 12px;
-  height: 12px;
-  background: inherit;
-  clip-path: polygon(100% 0, 0 100%, 100% 100%);
-}
-
-.chat-tail-right::after {
-  content: "";
-  position: absolute;
-  right: -6px;
-  bottom: 6px;
-  width: 12px;
-  height: 12px;
-  background: inherit;
-  clip-path: polygon(0 0, 100% 100%, 0 100%);
-}
-
-@keyframes pulse-dot {
-  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
-  40% { transform: scale(1); opacity: 1; }
-}
-
-.typing-dot {
-  animation: pulse-dot 1.4s infinite ease-in-out;
-}
-
-.typing-dot:nth-child(2) { animation-delay: 0.18s; }
-.typing-dot:nth-child(3) { animation-delay: 0.36s; }
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.marquee-track {
-  animation: marquee 38s linear infinite;
-}
-
-details > summary {
-  list-style: none;
-  cursor: pointer;
-}
-
-details > summary::-webkit-details-marker {
-  display: none;
-}
-
-details[open] .faq-icon {
-  transform: rotate(45deg);
-}
-
-.faq-icon {
-  transition: transform 0.25s ease;
+@media (prefers-reduced-motion: reduce) {
+  .watch-dot::after, .float-y, .float-y-slow, .edge-flow { animation: none; }
 }

@@ -23,14 +23,14 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kaval — A digital safety agent that sits between you and the internet",
+  title: "Kaval — The trust layer for the internet",
   description:
-    "Kaval verifies what's real, watches what matters to you, and briefs you in plain language. For your family. For your company. WhatsApp-first.",
+    "Kaval investigates digital signals, connects evidence, and tells people, teams, and institutions what is real, what is risky, what matters, and what to do next.",
   metadataBase: new URL("https://kaval.chat"),
   openGraph: {
-    title: "Kaval — Trust infrastructure for the AI era",
+    title: "Kaval — The trust layer for the internet",
     description:
-      "A digital safety agent that sits between you and the internet. Verify · Watch · Brief.",
+      "An adaptive trust and investigation layer for the internet. Signal → Investigation → Evidence → Judgement → Action.",
     url: "https://kaval.chat",
     siteName: "Kaval",
     type: "website",
