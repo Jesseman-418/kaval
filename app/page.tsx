@@ -724,7 +724,7 @@ function EvidenceGraph() {
           redaction = trust signal
         </span>
       </div>
-      <svg viewBox="0 0 360 240" className="w-full" role="img" aria-label="Evidence graph connecting a protected brand to scam infrastructure">
+      <svg viewBox="0 0 440 300" className="w-full" role="img" aria-label="Evidence graph connecting a protected brand to scam infrastructure">
         <defs>
           <radialGradient id="finding" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="#FF8A3D" />
@@ -732,46 +732,47 @@ function EvidenceGraph() {
           </radialGradient>
         </defs>
 
-        {/* edges */}
+        {/* edges — from BRAND (220,150) to peripherals + verified edge */}
         <g stroke="#C9542A" strokeOpacity="0.4" strokeWidth="1.2" fill="none">
-          <line className="edge-flow" x1="180" y1="120" x2="70" y2="50" />
-          <line className="edge-flow" x1="180" y1="120" x2="60" y2="150" />
-          <line className="edge-flow" x1="180" y1="120" x2="120" y2="210" />
-          <line className="edge-flow" x1="180" y1="120" x2="300" y2="60" />
-          <line className="edge-flow" x1="180" y1="120" x2="305" y2="160" />
-          <line x1="300" y1="60" x2="305" y2="160" stroke="#52715C" strokeOpacity="0.4" />
+          <line className="edge-flow" x1="220" y1="150" x2="60"  y2="65"  />
+          <line className="edge-flow" x1="220" y1="150" x2="60"  y2="235" />
+          <line className="edge-flow" x1="220" y1="150" x2="200" y2="260" />
+          <line className="edge-flow" x1="220" y1="150" x2="380" y2="65"  />
+          <line className="edge-flow" x1="220" y1="150" x2="380" y2="235" />
+          <line x1="380" y1="65" x2="380" y2="235" stroke="#52715C" strokeOpacity="0.45" />
         </g>
 
-        {/* edge labels */}
-        <g fill="#7A8278" fontSize="7.5" fontFamily="var(--font-jetbrains), monospace">
-          <text x="112" y="78">domain mismatch</text>
-          <text x="96" y="142">same phone</text>
-          <text x="120" y="178">complaint</text>
-          <text x="236" y="84">url reputation</text>
-          <text x="232" y="150">supports</text>
+        {/* edge labels — offset off the edges, never crossing nodes */}
+        <g fill="#7A8278" fontSize="8" fontFamily="var(--font-jetbrains), monospace" textAnchor="middle">
+          <text x="140" y="100">domain mismatch</text>
+          <text x="140" y="200">same phone</text>
+          <text x="225" y="215" textAnchor="start">complaint</text>
+          <text x="300" y="100">url reputation</text>
+          <text x="300" y="200">supports</text>
+          <text x="392" y="155" textAnchor="start" fill="#52715C">verified</text>
         </g>
 
         {/* peripheral nodes */}
-        <GNode x={70} y={50} label="refund-•••.com" tone="ember" />
-        <GNode x={60} y={150} label="+91 ••••" tone="ember" />
-        <GNode x={120} y={210} label="complaint post" tone="sage" />
-        <GNode x={300} y={60} label="URL feed" tone="sage" />
+        <GNode x={60}  y={65}  label="refund-•••.com" tone="ember" />
+        <GNode x={60}  y={235} label="+91 ••••"       tone="ember" />
+        <GNode x={200} y={260} label="complaint post" tone="sage"  />
+        <GNode x={380} y={65}  label="URL feed"       tone="sage"  />
 
-        {/* finding node */}
-        <circle cx="305" cy="160" r="22" fill="url(#finding)" />
-        <text x="305" y="158" textAnchor="middle" fill="#FFF9EF" fontSize="8" fontFamily="var(--font-jetbrains), monospace">
+        {/* finding node — sized to fit "fake support" cleanly */}
+        <circle cx="380" cy="235" r="28" fill="url(#finding)" />
+        <text x="380" y="233" textAnchor="middle" fill="#FFF9EF" fontSize="9" fontFamily="var(--font-jetbrains), monospace" fontWeight="600">
           FINDING
         </text>
-        <text x="305" y="168" textAnchor="middle" fill="#FFF9EF" fontSize="6.5" fontFamily="var(--font-jetbrains), monospace">
+        <text x="380" y="246" textAnchor="middle" fill="#FFF9EF" fontSize="7" fontFamily="var(--font-jetbrains), monospace">
           fake support
         </text>
 
         {/* protected object — center */}
-        <circle cx="180" cy="120" r="30" fill="#214C3A" />
-        <text x="180" y="117" textAnchor="middle" fill="#DDE8D8" fontSize="8.5" fontFamily="var(--font-jetbrains), monospace">
+        <circle cx="220" cy="150" r="34" fill="#214C3A" />
+        <text x="220" y="147" textAnchor="middle" fill="#DDE8D8" fontSize="9.5" fontFamily="var(--font-jetbrains), monospace" fontWeight="600">
           BRAND
         </text>
-        <text x="180" y="128" textAnchor="middle" fill="#DDE8D8" fontSize="6.5" fontFamily="var(--font-jetbrains), monospace">
+        <text x="220" y="160" textAnchor="middle" fill="#DDE8D8" fontSize="7" fontFamily="var(--font-jetbrains), monospace">
           protected
         </text>
       </svg>
