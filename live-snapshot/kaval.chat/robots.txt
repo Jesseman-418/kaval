@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /chat
+Disallow: /chat/*
+Disallow: /dashboard
+Disallow: /dashboard/*
+Disallow: /settings
+Disallow: /settings/*
+Disallow: /login
+Disallow: /api/
+
+Sitemap: https://kaval.chat/sitemap-index.xml

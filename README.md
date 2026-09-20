@@ -1,3 +1,30 @@
+# Kaval website repository
+
+The root `app/` folder contains an earlier Next.js concept. The currently deployed
+`kaval.chat` website is a separate Astro build. Its original Astro source is not
+available in this repository.
+
+## Current public website snapshot
+
+`live-snapshot/kaval.chat/` contains the HTML, CSS, JavaScript, fonts, and images
+served publicly by `https://kaval.chat/` on 20 September 2026. It covers the
+linked public pages, including the homepage, pricing, tools, scam guides, blog,
+privacy, and terms. The files are compiled output captured from the live site,
+not the original editable Astro components or any private server code.
+
+To inspect the snapshot locally:
+
+```bash
+python3 -m http.server 4173 --directory live-snapshot/kaval.chat
+```
+
+Then open `http://localhost:4173/`. Some features, including login, WhatsApp,
+analytics, and tools that call remote APIs, depend on live services and may not
+work in the local snapshot. Update the snapshot from the original Astro project
+when that source becomes available.
+
+## Earlier Next.js concept
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
