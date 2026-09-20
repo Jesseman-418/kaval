@@ -23,6 +23,18 @@ analytics, and tools that call remote APIs, depend on live services and may not
 work in the local snapshot. Update the snapshot from the original Astro project
 when that source becomes available.
 
+## Browser-saved homepage
+
+`browser-save/` contains the homepage HTML file and its companion `_files`
+folder supplied by the repository owner on 20 September 2026. Keep the HTML
+file and folder together when opening this saved page. This is a browser save,
+not the original Astro project. The broader `live-snapshot/` above includes
+the linked public pages and more assets.
+
+The backend source is not present in either capture. It must be added from
+the original backend project; browser HTML and JavaScript cannot reveal the
+server implementation or database code.
+
 ## Earlier Next.js concept
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
