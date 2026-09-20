@@ -19,6 +19,9 @@
 
 # production
 /build
+/dist/
+/output/
+/.playwright-cli/
 
 # misc
 .DS_Store

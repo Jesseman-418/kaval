@@ -31,7 +31,7 @@ This report covers code and content delivered to an unauthenticated browser. It 
 - **Blog:** article index and individual articles.
 - **About, privacy, terms:** company and legal information.
 
-The snapshot contains 104 HTML files. Some routes have both slash and `.html` copies because the mirror followed both forms of public links.
+The `site/` folder contains 104 HTML files. Some routes have both slash and `.html` copies because the capture followed both forms of public links.
 
 ## SEO and delivery observations
 
